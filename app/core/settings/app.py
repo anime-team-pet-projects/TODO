@@ -16,7 +16,11 @@ class AppSettings(BaseAppSettings):
     allowed_hosts: List[str] = ['*']
 
     logging_level: int = logging.INFO
-    loggers: Tuple[str, str] = ("uvicorn.asgi", "uvicorn.access")
+    loggers: Tuple[str, str] = ('uvicorn.asgi', 'uvicorn.access')
+
+    secret_key: str
+    algorithm: str
+    access_token_expire_minutes: int
 
     class Config:
         validate_assignment = True
