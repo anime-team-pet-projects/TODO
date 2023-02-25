@@ -17,7 +17,8 @@ task_service = DependentService(TaskService, TaskRepository, is_security_setting
 
 @router.get('', response_model=list[TaskOut], summary='Показать все задачи')
 async def get_tasks(service: TaskService = Depends(task_service), current_user: User = Depends(get_current_user)):
-    return await service.get_all_tasks(user_id=current_user.id)
+    tasks = await service.get_all_tasks(user_id=current_user.id)
+    return tasks
 
 
 @router.post('', response_model=TaskOut, summary='Создать задачу')
