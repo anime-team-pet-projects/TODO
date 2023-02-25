@@ -39,6 +39,7 @@ class TaskRepository(BaseRepository):
         return Task(
             id=model.id,
             user_id=model.user_id,
+            status=model.status,
             title=model.title,
             content=model.content,
         )
