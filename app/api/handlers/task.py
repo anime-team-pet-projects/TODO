@@ -24,7 +24,7 @@ async def get_tasks(service: TaskService = Depends(task_service), current_user: 
 async def create_task(
     task: TaskIn, service: TaskService = Depends(task_service), current_user: User = Depends(get_current_user)
 ):
-    task = Task(title=task.title, content=task.content, user_id=current_user.id)
+    task = Task(title=task.title, content=task.content, user_id=current_user.id, status=task.status)
     return await service.create_task(task)
 
 
