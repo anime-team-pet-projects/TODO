@@ -1,0 +1,46 @@
+[tool.poetry]
+name = "todo"
+version = "0.1.0"
+description = ""
+authors = ["s1veme <kpdpav@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = "^0.92.0"
+pydantic = {extras = ["dotenv"], version = "^1.10.5"}
+loguru = "^0.6.0"
+databases = "^0.7.0"
+alembic = "^1.9.4"
+uvicorn = "^0.20.0"
+psycopg2 = "^2.9.5"
+asyncpg = "^0.27.0"
+
+
+[tool.poetry.group.dev.dependencies]
+black = {extras = ["d"], version = "^23.1.0"}
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.black]
+line-length = 120
+target-version = ["py39", "py310"]
+include = ".py$"
+force-exclude = """
+migrations
+| .venv
+| venv
+"""
+
+
+[tool.isort]
+profile="black"
+line_length=120
+extend_skip_glob = [
+  "migrations/*",
+  ".venv/*",
+  "venv/*"
+]
