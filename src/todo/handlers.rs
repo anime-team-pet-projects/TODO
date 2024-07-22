@@ -143,7 +143,7 @@ pub async fn update_todo(
 
 	// Ensure there is at least one column to update
 	if bind_values.is_empty() {
-		response.errors.push("No fields to update".to_string());
+		response.errors.push("Нет полей для обновления".to_string());
 		return Json(response);
 	}
 
@@ -169,7 +169,7 @@ pub async fn update_todo(
 
 	match result {
 		Ok(_) => {
-			response.messages.push("Record successfully updated".to_string());
+			response.messages.push("Запись успешно обновлена".to_string());
 			Json(response)
 		},
 		Err((_, error_message)) => {
